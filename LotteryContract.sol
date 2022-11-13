@@ -11,4 +11,13 @@ contract lottery{
         manager =  msg.sender; //global variable
         
     }
+    receive() external payable // receive function used only once for sending eth to contract
+    {
+        participants.push(payable(msg.sender));
+
+    }
+    function getBalance() public view returns(uint)
+    {
+        return address(this).balance;
+    }
 }
