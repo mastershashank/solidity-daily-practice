@@ -13,11 +13,14 @@ contract lottery{
     }
     receive() external payable // receive function used only once for sending eth to contract
     {
+        require(msg.value==1 ether);
         participants.push(payable(msg.sender));
 
     }
     function getBalance() public view returns(uint)
     {
+        require(msg.sender == manager);
         return address(this).balance;
     }
 }
+
