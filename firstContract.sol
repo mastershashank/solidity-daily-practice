@@ -26,4 +26,10 @@ contract Udata {
     uint nextId;
     uint nextMessageId;
 
+    function tweet(address _from, string memory _content) public{
+      require(msg.sender ==_from, "You are not authorissed");
+        tweets[nextId]=Tweet(nextId,_from,block.timestamp,_content);
+        tweetsOf[_from].push(nextId);
+        nextId++;
+    }
 }
