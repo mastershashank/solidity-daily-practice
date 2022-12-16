@@ -28,14 +28,14 @@ contract Twitter {
   uint nextMessageId;
  
   function tweet(address _from,string memory _content) internal {
-      require(msg.sender==_from  operators[_from][msg.sender]==true,"You are not authorised");
+      require(msg.sender==_from || operators[_from][msg.sender]==true,"You are not authorised");
       tweets[nextId]=Tweet(nextId,_from,block.timestamp,_content);
       tweetsOf[_from].push(nextId);
       nextId++;
   }
 
   function _sendMessage(string memory _content,address _from,address _to) internal{
-      require(msg.sender==_from  operators[_from][msg.sender]==true,"you are not authorised ");
+      require(msg.sender==_from || operators[_from][msg.sender]==true,"you are not authorised ");
       conversation[_from].push(Message(nextMessageId,_from,_to,_content,block.timestamp));
       nextMessageId++;
   }
