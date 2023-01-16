@@ -6,7 +6,7 @@ contract state
     enum user{allowed, not_allowed,wait}
 
     user public u1 = user.allowed;
-    uint public lottery = 10000;
+    uint public lottery = 100;
 
 function owner() public  {
         if(u1==user.allowed)
