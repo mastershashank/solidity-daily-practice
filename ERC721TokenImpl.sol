@@ -13,7 +13,9 @@
 
 
         function _safeMint(address to) public OnlyOwner {
-        _safeMint(to, tokenId, "");
+                uint256 tokenId = _tokenIdCounter.current();
+                _tokenIdCounter.increment();
+                _safeMint(to, tokenId, "");
         }
         
         }
