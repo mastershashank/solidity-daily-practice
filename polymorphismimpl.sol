@@ -8,7 +8,7 @@ function sub(int a, int b) public pure returns(int) {
 return a-b;
 }
 
-function sub(int a, int b, int c) public pure returns(int) {
-return a-b-c;
+function sub(int a, int b, int c, int d) public pure returns(int) {
+return a-b-c-d;
 }   
 }
